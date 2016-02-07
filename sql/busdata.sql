@@ -10,11 +10,12 @@ dutystatus integer,
 busstatus integer,
 routeid VARCHAR(20),
 goback integer,
-longitude real,
-latitude real,
-speed real,
-azimuth real,
-datatime timestamp with time zone,
-etl_time timestamp with time zone,
-update_time timestamp with time zone
+longitude numeric,
+latitude numeric,
+speed numeric,
+azimuth numeric,
+datatime timestamp,
+etl_time timestamp,
+update_time timestamp
 );
+create index position on busdata (longitude,latitude,datatime);
