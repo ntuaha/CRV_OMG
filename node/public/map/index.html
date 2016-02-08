@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>MAP</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB52NrvOonj56KuqwuyAtnikyFuSJRJ9Xg&callback=addMap"></script>
+    <link rel="stylesheet" href="css/map.css">
+    <script src="./js/map.js"></script>
+
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12 head">
+          <h1> Hello, world! asdfa </h1>
+          <div id="etlAt" class="col-md-4"></div>
+          <div id="timer" class="col-md-4"></div>
+          <div id="counter" class="col-md-4"></div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-10 left">
+        </div>
+        <div class="col-md-2 right">
+          <button class="btn col-md-12 btn-default" id="cleanMap">清除地圖</button>
+          <button class="btn col-md-12 btn-default" id="refreshMap">更新地圖</button>
+          <table class="col-md-12 table bus_info">
+            <tr><td>bus id</td><td id="bus_id"></td></tr>
+            <tr><td>recordAt</td><td id="recordAt"></td></tr>
+            <tr><td>route</td><td id="route"></td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+  </body>
+</html>

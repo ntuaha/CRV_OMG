@@ -1,0 +1,32 @@
+/* https://coolors.co/5490cc-011936-465362-9fc490-c0dfa1 */
+/* https://coolors.co/app/5bc0eb-fde74c-9bc53d-e55934-fa7921 */
+
+body{
+  background-color:#011936;
+  color:#5490cc;
+}
+.left{
+
+}
+.right{
+
+}
+.head{
+  height:100px;
+}
+
+#etlAt{
+  color:#c0dfa1;
+}
+
+#timer{
+  color:#e55934;
+}
+
+#counter{
+  color:#9bc53d;
+}
+
+table.businfo{
+  color:#9fc490;
+}

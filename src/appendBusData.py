@@ -60,6 +60,8 @@ class SQL:
     self.insert_data_sql = "INSERT INTO busdata (%s) VALUES "%(",".join(col_names))
     self.insert_value_templ = "(%s)"%(",".join(col_types))
 
+    self.insert_data_lastest_sql = "INSERT INTO busdata_lastest (%s) VALUES "%(",".join(col_names))
+
   def readData(self,filepath):
     with open(filepath,'r') as f:
       records = json.load(f)
@@ -77,6 +79,23 @@ class SQL:
     self.cursor.execute(self.insert_data_sql+" "+",".join(data))
     self.conn.commit()
     print '--insert end --'
+
+  def insertBusData_lastest(self,records):
+    etl_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    update_time = str(records['EssentialInfo']['UpdateTime'])
+    i = 0
+    print '--insert begin--'
+    data = []
+    for r in records['BusInfo']:
+      dt = datetime.datetime.utcfromtimestamp(int(r['DataTime'][6:16])+60*60*8).strftime('%Y-%m-%d %H:%M:%S')
+      data.append(self.insert_value_templ%(str(int(r['StationID'])),int(r['CarType']),str(r['BusID']),str(int(r['ProviderID'])),str(int(r['CarID'])),int(r['DutyStatus']),int(r['BusStatus']),str(int(r['RouteID'])),int(r['GoBack']),float(r['Longitude']),float(r['Latitude']),float(r['Speed']),float(r['Azimuth']),dt,etl_time,update_time))
+    self.cursor.execute("DELETE FROM busdata_lastest");
+    self.cursor.execute(self.insert_data_lastest_sql+" "+",".join(data));
+    self.conn.commit()
+    print '--insert end --'
+
+
+
 
   def __showRecord(self,record):
     print "--begin--"
@@ -107,6 +126,7 @@ def main():
   else:
     records= db.readData(filepath)
     db.insertBusData(records)
+    db.insertBusData_lastest(records)
   db.closeDB()
 
 
